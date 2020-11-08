@@ -1,0 +1,72 @@
+/*
+ This program is made by me. It is entirely free use, as per the license
+shown when accessing this code.
+
+The purpose of this program is to act as a POS tracking tool for a restaurant
+specializing in sloppy joes and gyros, named aptly, Tanner's Joe/Gyro Joint.
+The program uses member variables and the calling of various methods from main
+to progessively calculate the amount of joes and gyros sold in a cumulative
+manner.
+*/
+package weekB1_scope;
+
+/**
+ *
+ * @author Tanner
+ */
+public class OrderTabulator {
+    
+    private static int numSloppyJoe = 0;
+    private static int numGyro = 0;
+    // two member variables, initializing the number of ordered sloppy joes and
+    // gyros as zero. these are very helpful in tracking the total accumulated
+    // amount of orders of each product.
+    
+    public static void main(String[] args){
+        System.out.println("////////////TANNER'S JOE/GYRO JOINT/////////////");
+        
+        printSloppyJoeStats(); // an initial print of the selling stats. for
+        printGyroStats();      // now they are 0, but will change as orders
+                               // are placed.
+       
+        orderSloppyJoe(3);      // the first wave of orders. the numbers in ()
+        orderGyro(6);           // represent the # of each item respectively
+        printSloppyJoeStats();  // ordered. note the print methods called again.
+        printGyroStats();
+        
+        orderSloppyJoe(5);      // wave 2. the numbers are hardcoded in this
+        orderGyro(11);          // program. however, one could also edit this
+        printSloppyJoeStats();  // program to prompt the user for a variable
+        printGyroStats();       // to use instead. one final print and main is
+                                // done!
+    } // close main method
+    
+    public static void orderSloppyJoe(int ordered){
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println(ordered + " sloppy joes have been ordered!");
+        System.out.println(ordered + " Joes comin' right up!");
+        numSloppyJoe = numSloppyJoe + ordered;
+    } // the sloppy joe method tells how many sloppy joes were ordered per
+      // respected wave, afterwards showing the total amount of joes ordered
+      // using numSloppyJoe, the ordered int, and the + operator.
+    
+    public static void orderGyro(int ordered){
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println(ordered + " gyros have been ordered!");
+        System.out.println(ordered + " gyros will be out in a jiffy!");
+        numGyro = numGyro + ordered;
+    } // the gyro method is identical to the joe method in functionality. these
+      // methods demonstrate the versatility of method variables in practice.
+    
+    public static void printSloppyJoeStats(){
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println("Total sloppy joes ordered: " + numSloppyJoe + ".");
+    } // the last two methods are called on a lot. they also use the method
+      // variables to display the current total amount of food items ordered,
+      // and using a println for the sake of making it easier to read.
+    
+    public static void printGyroStats(){
+        System.out.println("Total gyros ordered: " + numGyro + ".");
+    } // see notes under previous method.
+    
+} // close OrderTabulator class
